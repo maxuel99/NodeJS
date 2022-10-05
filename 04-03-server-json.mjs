@@ -5,13 +5,16 @@ const server = createServer((request, response) => {
 
   response.statusCode = 200;
 
-  response.setHeader("Content-Type", "text/html");
+  response.setHeader("Content-Type", "application/json");
 
-  response.end(
-    "<html><body><h1>Hello NodeJS!</h1></body></html>"
-  );
+  const jsonResponseBody = JSON.stringify({ location: "Mars" });
+
+  response.end(jsonResponseBody);
 });
 
 server.listen(3000, () => {
   console.log(`Server running at http://localhost:3000`);
 });
+
+// What is the value of the Content-Length response header?
+// Content-Length: 19
