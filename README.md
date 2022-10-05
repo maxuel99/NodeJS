@@ -1,4 +1,4 @@
 # NodeJS
-Exercise 3 - Create and use CommonJS modules
+Our HTTP server sends an HTML response body.
 
-Create a script that uses export default to export a function. Create another script that uses import to import the function and then calls it.
+Replace the text in the HTML with your own message. Run the server and use your web browser to test your changes.
