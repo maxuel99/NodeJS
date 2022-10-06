@@ -1,7 +1,11 @@
 # NodeJS
-Make an HTTP request with curl that shows the response headers for this URL: https://jsonplaceholder.typicode.com/posts/1/comments
+Our integration test in app.test.js expects a JSON response.
 
-What is the value of the content-type response header?
+Change the test to expect an HTML response header: Content-Type: text/html
 
-The value is:
-content-type: application/json; charset=utf-8
+Change the test to expect this HTML in response.text:
+
+Welcome to the World Wide Web!
+Run the test with npm test — it should fail.
+Update the code in app.js to send the HTTP response the test expects.
+Run the test with npm test — it should pass.
