@@ -12,16 +12,15 @@ function luckyDraw(player) {
     });
   }
 
-  luckyDraw("Joe")
-    .then((result) => console.log(result))
-    .catch((e) => console.log(e.message))
-    .then(
-      luckyDraw("Caroline")
-        .then((result) => console.log(result))
-        .catch((e) => console.log(e.message))
-    )
-    .then(
-      luckyDraw("Sabrina")
-        .then((result) => console.log(result))
-        .catch((e) => console.log(e.message))
-    );
+async function getResults() {
+    try {console.log(await luckyDraw('Tina'))}
+    catch(e) {console.error(e.message)}
+
+    try {console.log(await luckyDraw('Jorge'))}
+    catch(e) {console.error(e.message)}
+
+    try {console.log(await luckyDraw('Julien'))}
+    catch(e) {console.error(e.message)}
+}
+
+getResults();
