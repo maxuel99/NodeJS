@@ -1,18 +1,7 @@
 # NodeJS
-Create agetResults function that uses async and await. Inside of the function, call the luckyDraw function for each of the players: Tina, Jorge, Julien
+Use the techniques you've learnt so far to create your own HTTP server with Express. Your server should:
 
-Log out the resolved value for each promise and handle any promise rejections.
-
-function luckyDraw(player) {
-  return new Promise((resolve, reject) => {
-    const win = Boolean(Math.round(Math.random()));
-
-    process.nextTick(() => {
-      if (win) {
-        resolve(`${player} won a prize in the draw!`);
-      } else {
-        reject(new Error(`${player} lost the draw.`));
-      }
-    });
-  });
-}
+Automatically recompile and restart when you make changes
+Have a GET route that sends a JSON response
+Have an integration test for the GET route
+Use an environment variable to configure the server port
