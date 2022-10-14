@@ -36,6 +36,7 @@
     "has": "^1.0.3",
     "has-symbols": "^1.0.3",
     "hexoid": "^1.0.0",
+    "jest-mock-extended": "^3.0.1",
     "lru-cache": "^6.0.0",
     "methods": "^1.1.2",
     "mime": "^2.6.0",
