@@ -106,6 +106,7 @@ app.post("/planets/:id(\\d+)/photo",
             next(`Cannot POST /planets/${planetId}/photo`);
         }
 
+        response.status(201).json({ photoFilename });
     }
 );
 

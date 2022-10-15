@@ -2,7 +2,6 @@ import multer from "multer";
 import mime from "mime";
 
 import { randomUUID } from "node:crypto";
-import { request } from "express";
 
 export const generatePhotoFilename = (mimeType: string) => {
     const randomFilename = `${randomUUID()}-${Date.now()}`;

@@ -80,6 +80,7 @@ app.post("/planets/:id(\\d+)/photo", upload.single("photo"), async (request, res
         response.status(404);
         next(`Cannot POST /planets/${planetId}/photo`);
     }
+    response.status(201).json({ photoFilename });
 });
 app.use("/planets/photos", express_1.default.static("uploads"));
 app.use(validation_1.validateErrorMiddleware);
