@@ -13,9 +13,48 @@ app.get("/planets", async (request, response) => {
     const planets = await client_1.default.planet.findMany();
     response.json(planets);
 });
+app.get("/planets/:id(\\d+)", async (request, response, next) => {
+    const planetId = Number(request.params.id);
+    const planet = await client_1.default.planet.findUnique({
+        where: { id: planetId }
+    });
+    if (!planet) {
+        response.status(404);
+        return next(`Cannot GET /planets/${planetId}`);
+    }
+    response.json(planet);
+});
 app.post("/planets", (0, validation_1.validate)({ body: validation_1.planetSchema }), async (request, response) => {
     const planet = request.body;
     response.status(201).json(planet);
+});
+app.put("/planets/:id(\\d+)", (0, validation_1.validate)({ body: validation_1.planetSchema }), async (request, response, next) => {
+    const planetId = Number(request.params.id);
+    const PlanetData = request.body;
+    try {
+        const planet = await client_1.default.planet.update({
+            where: { id: planetId },
+            data: PlanetData
+        });
+        response.status(200).json(planet);
+    }
+    catch (error) {
+        response.status(404);
+        next(`Cannot PUT /planets/${planetId}`);
+    }
+});
+app.delete("/planets/:id(\\d+)", async (request, response, next) => {
+    const planetId = Number(request.params.id);
+    try {
+        await client_1.default.planet.delete({
+            where: { id: planetId }
+        });
+        response.status(204).end();
+    }
+    catch (error) {
+        response.status(404);
+        next(`Cannot DELETE /planets/${planetId}`);
+    }
 });
 app.use(validation_1.validateErrorMiddleware);
 exports.default = app;
