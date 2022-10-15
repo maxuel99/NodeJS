@@ -64,14 +64,24 @@ app.delete("/planets/:id(\\d+)", async (request, response, next) => {
     }
 });
 app.post("/planets/:id(\\d+)/photo", upload.single("photo"), async (request, response, next) => {
-    console.log("request.file", request.file);
     if (!request.file) {
         response.status(400);
         return next("No photo file uploaded.");
     }
+    const planetId = Number(request.params.id);
     const photoFilename = request.file.filename;
-    response.status(201).json({ photoFilename });
+    try {
+        await client_1.default.planet.update({
+            where: { id: planetId },
+            data: { photoFilename },
+        });
+    }
+    catch (error) {
+        response.status(404);
+        next(`Cannot POST /planets/${planetId}/photo`);
+    }
 });
+app.use("/planets/photos", express_1.default.static("uploads"));
 app.use(validation_1.validateErrorMiddleware);
 exports.default = app;
 //# sourceMappingURL=app.js.map
