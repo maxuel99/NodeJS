@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <body>
-        <!-- <p>
+        <p>
             <a href="http://localhost:3000/auth/login?redirectTo=http://localhost:8080/add">Login</a>
-        </p> -->
+        </p>
 
 
 
@@ -13,12 +13,12 @@
             </label>
 
             <label>
-                <strong>Diameter:</strong>
+               <strong>Diameter:</strong>
                 <input type="number" name="diameter">
             </label>
 
             <label>
-                <strong>Moons:</strong>
+               <strong> Moons:</strong>
                 <input type="number" name="moons">
             </label>
 
@@ -43,7 +43,7 @@
                         "Content-Type": "application/json"
                     },
                     body: formDataJsonString,
-                    // credentials: "include",
+                    credentials: "include",
                 });
 
                 const planet = await response.json();
@@ -52,7 +52,7 @@
             }
 
             const addForm = document.getElementById("form-add");
-            
+
             addForm.addEventListener("submit", addPlanet);
         </script>
     </body>
