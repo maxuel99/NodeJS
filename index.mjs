@@ -3,6 +3,6 @@ import './script-2.mjs';
 
 import { counterInstance } from "./counter.mjs";
 
-counterInstance.increment();
+counterInstance.output();
 
 console.log("count:", counterInstance.count);

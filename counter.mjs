@@ -1,6 +1,6 @@
 export const counterInstance = {
     count: 0,
-    increment() {
+    output() {
         this.count++;
     }
 };
