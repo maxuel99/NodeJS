@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const cors_1 = __importDefault(require("cors"));
 const client_1 = __importDefault(require("./lib/prisma/client"));
-const validation_1 = require("./lib/validation");
+const validation_1 = require("./lib/middleware/validation");
 const multer_1 = require("./lib/middleware/multer");
 const upload = (0, multer_1.initMulterMiddleware)();
 const corsOptions = {
