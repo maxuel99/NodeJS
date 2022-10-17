@@ -5,7 +5,7 @@ describe("generatePhotoFilename", () => {
     ["image/png", "png"],
     ["image/jpeg", "jpeg"],
   ])(
-    "Generates filename with correct extension when èassed mimeType '%s'",
+    "Generates filename with correct extension when passed mimeType '%s'",
     (mimeType, expectedFileExtension) => {
         const fullFilename = generatePhotoFilename(mimeType);
         const [, fileExtension] = fullFilename.split(".");

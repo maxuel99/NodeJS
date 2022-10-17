@@ -90,12 +90,12 @@ router.post("/:id(\\d+)/photo",
                 where: { id: planetId },
                 data: { photoFilename },
             });
+            
+            response.status(201).json({ photoFilename });
         } catch (error) {
             response.status(404);
             next(`Cannot POST /planets/${planetId}/photo`);
         }
-
-        response.status(201).json({ photoFilename });
     }
 );
 
