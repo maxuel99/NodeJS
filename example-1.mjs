@@ -1,28 +1,31 @@
-// Implement a toString method on the Shout class that decorates the toString method for a Text class instance.
+// Complete this code to inject the Wheel instance dependencies into the Bike instance.
 
-// It should use the toUpperCase() method to convert the Text instance string to uppercase.
-
-class Text {
-  constructor(text) {
-    this.string = text;
+class Bike {
+  constructor(wheel1, wheel2) {
+        this.wheel1 = wheel1;
+        this.wheel2 = wheel2;
   }
 
-  toString() {
-    return this.string;
-  }
-}
+  specification() {
+    let message = `${this.wheel1.label} wheel diameter = ${this.wheel1.diameter}`;
+    message += `, ${this.wheel2.label} wheel diameter = ${this.wheel2.diameter}`;
 
-
-class Shout {
-  constructor(text) {
-    this.text = text;
-  }
-
-  toString() {
-    return (this.text.toString()).toUpperCase();
+    return message;
   }
 }
 
-console.log(new Text("Hello, I'm talking").toString());
+class Wheel {
+  constructor(label, diameter) {
+    this.label = label;
+    this.diameter = diameter;
+  }
+}
 
-console.log(new Shout(new Text("Hello, I'm shouting!")).toString());
+const frontWheel = new Wheel("Front", 126);
+const backWheel = new Wheel("Back", 42);
+
+const bike = new Bike(frontWheel, backWheel);
+
+console.log(bike);
+
+console.log("Bike specification:", bike.specification());
